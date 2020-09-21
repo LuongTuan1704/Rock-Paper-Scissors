@@ -31,3 +31,13 @@ The designs were created to the following widths:
 
 - Family: [Barlow Semi Condensed](https://fonts.google.com/specimen/Barlow+Semi+Condensed)
 - Weights: 600, 700
+
+
+
+  You Picked
+  The House Picked
+
+  You Win
+  You Lose
+
+  Play Again

@@ -1,37 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+  <link rel="stylesheet" href="./css/desktop.css">
+  <title>Rock, Paper, Scissors</title>
 
-  Score
-  Rules
-
-  You Picked
-  The House Picked
-
-  You Win
-  You Lose
-
-  Play Again
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .attribution {
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
   </style>
 </head>
+
 <body>
 
+  <div class="game_container">
+    <div class="board_info">
+      <h1 class="game_title">
+        Rock </br> Paper </br> Scissors
+      </h1>
+      <div class="score_view">
+        <div id="you">
+          <span style="color: #374baa;">You</span>
+          </br>
+          <span id="score">0</span>
+        </div>
+        <div id="compute">
+          <span style="color:#dc3853;">Computer</span>
+          </br>
+          <span id="computer_score">0</span>
+        </div>
+      </div>
+    </div>
+    <div class="game_body">
+      <div class="pos_center">
+        <img class="bg-triangle" src="./images/bg-triangle.svg" alt="">
+        <div class="s paper" value='paper'>
+          <img src="./images/icon-paper.svg" alt="" srcset="">
+        </div>
+        <div class="s scissors" value='scissors'>
+          <img src="./images/icon-scissors.svg" alt="" srcset="">
+        </div>
+        <div class="s rock" value='rock'>
+          <img src="./images/icon-rock.svg" alt="" srcset="">
+        </div>
+      </div>
 
-  
+      <div class="game_chossed hide">
+        <div class="game_player_pick">
+          <span class="title">
+            you
+          </span>
+          <div class="player_picked_item ">
+            <img src="./images/icon-paper.svg" alt="" srcset="">
+          </div>
+        </div>
+        <div class="btn_status hide">
+          <span class="status"></span>
+          <button class="btn_play_again">play again</button>
+        </div>
+        <div class="game_compute_pick">
+          <span class="title">
+            compute
+          </span>
+          <div class="compute_picked_item">
+            <img src="./images/icon-rock.svg" alt="" srcset="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button id="game_rules">Rules</button>
+    <div class="game-rules-wiew">
+      <div class="modal">
+        <div class="modal_header">
+          <span style="text-transform: uppercase;">rules</span>
+          <span class="btn close_modal"><img src="./images/icon-close.svg" alt=""></span>
+        </div>
+        <img src="./images/image-rules.svg" alt="">
+      </div>
+
+    </div>
+  </div>
+  <script>
+    const btnGameRules = document.getElementById('game_rules');
+    const WiewRules = document.querySelector('.game-rules-wiew');
+    btnGameRules.onclick = function () {
+      document.querySelector('.game-rules-wiew').classList.add("open")
+    }
+    WiewRules.onclick = function () {
+      WiewRules.classList.remove('open')
+    }
+    document.querySelector('.btn_play_again').onclick = function () {
+      document.querySelector('.pos_center').classList.remove("hide")
+      document.querySelector('.game_chossed').classList.add("hide")
+    }
+    const item = document.querySelectorAll('.s');
+    item.forEach(item => {
+      item.onclick = function () {
+        document.querySelector('.pos_center').classList.add("hide")
+        document.querySelector('.game_chossed').classList.remove("hide")
+        let playerPicked = item.getAttribute('value');
+        showPickItem(playerPicked, 'player');
+        let cumputePicked = computePicked();
+        checkWinter(playerPicked, cumputePicked)
+      }
+    })
+
+    const pl = document.querySelector('.player_picked_item');
+    const cp = document.querySelector('.compute_picked_item');
+    const Color = {
+      'paper': '#506cf4',
+      'rock': '#dc3853',
+      'scissors': '#eaa81e'
+    };
+
+    function showPickItem(item, type) {
+      if (type === 'player') {
+        pl.innerHTML = `<img src="./images/icon-${item}.svg" alt="" srcset="">`
+        pl.style.setProperty("border-color", Color[item])
+
+      } else {
+        cp.innerHTML = `
+         <img src="./images/icon-${item}.svg" alt="" srcset="">`
+        cp.style.setProperty("border-color", Color[item])
+      }
+    }
+    const itemNames = ['paper', 'rock', 'scissors'];
+    let score = 0,
+      computeScore = 0;
+
+    function computePicked() {
+      let randomItem = Math.floor(Math.random() * itemNames.length)
+      showPickItem(itemNames[randomItem], '')
+      return itemNames[randomItem];
+    }
+    //paper > rock > scissors 
+    const checks = {
+      'paper': 'rock',
+      'rock': 'scissors',
+      'scissors': 'paper'
+    }
+
+    function checkWinter(play, compute) {
+      let status = '';
+      if (play === compute) {
+        status = 'Draw';
+      } else if (checks[play] === compute) {
+        status = 'You Win';
+        document.getElementById('score').innerText = ++score
+      } else {
+        status = "You Lose"
+        document.getElementById('computer_score').innerText = ++computeScore;
+      }
+      document.querySelector('.btn_status').classList.remove('hide')
+      document.querySelector('.status').innerText = status
+
+    }
+  </script>
+
   <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">LuongTuan</a>.
   </div>
 </body>
+
 </html>
