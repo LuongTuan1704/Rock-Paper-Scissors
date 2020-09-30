@@ -1,7 +1,2 @@
 .DS_Store
-<<<<<<< HEAD
-/design
-=======
-/images
-/design
->>>>>>> aff53c0c12395fd0f2132abad4b9d3ed99a7ed4b
+src/design
