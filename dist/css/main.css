@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 700;
+  background-image: -webkit-radial-gradient(#1f3756, #141539);
+}
+
+.game_container {
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 15px;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+.game_container .board_info {
+  width: 704px;
+  min-height: 145px;
+  border-radius: 12px;
+  border: 2px solid #596781;
+  padding: 0px 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 65px;
+}
+
+.game_container .board_info--title {
+  display: inline-block;
+  font-size: 30px;
+  color: #f8f8f8;
+}
+
+.game_container .board_info--score {
+  width: 50%;
+  min-height: 115px;
+  padding: 5px 10px;
+  border-radius: 12px;
+  background-color: #f8f8f8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: none;
+      -ms-flex-align: none;
+          align-items: none;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.game_container .board_info--score #player,
+.game_container .board_info--score #compute {
+  padding: 3px 6px;
+  font-size: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+.game_container .board_info--score #player #score {
+  color: #3b4363;
+}
+
+.game_container .board_info--score #compute #score {
+  color: #3b4363;
+}
+
+.game_container .game_body {
+  width: 704px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.game_container .game_body--board-v1 {
+  position: relative;
+  height: 435px;
+  width: 100%;
+  --w: 160px;
+  --h: 160px;
+  --distance: 70px;
+  background-image: url("./../../src/images/bg-triangle.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}

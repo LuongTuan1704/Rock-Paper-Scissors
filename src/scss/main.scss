@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 700;
+    background-image: -webkit-radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+}
+@mixin place($x ,$y ,$direction) {
+    display: flex;
+    justify-content: $x;
+    align-items: $y;
+    flex-direction: $direction;
+}
+.game_container {
+    max-width: 1366px;
+    margin: 0 auto;
+    padding:15px;
+    height: 100vh;
+    @include place(flex-start , center ,column);
+    position: relative;
+    .board_info {
+        width: 704px;
+        min-height: 145px;
+        border-radius: 12px;
+        border: 2px solid #596781;
+        padding: 0px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 65px;
+
+        &--title {
+            display: inline-block;
+            font-size: 30px;
+            color: #f8f8f8;
+        }
+
+        &--score {
+            width: 50%;
+            min-height: 115px;
+            padding: 5px 10px;
+            border-radius: 12px;
+            background-color: #f8f8f8;
+            @include place(space-around,none, row);
+       
+            & #player,
+            & #compute {
+               padding: 3px 6px;
+               font-size:1.5rem;
+               @include place(space-between,center, column);
+               text-align: center;
+            }
+
+            & #player #score {
+                color: hsl(229, 25%, 31%);
+            }
+            & #compute #score {
+                color: hsl(229, 25%, 31%);
+
+            }
+
+        }
+    }
+    .game_body {
+        width: 704px;
+        @include place(center,center, row);
+        &--board-v1{
+            position: relative;
+            height: 435px;
+            width: 100%;
+            --w: 160px;
+            --h: 160px;
+            --distance: 70px;
+            background-image: url("./../../src/images/bg-triangle.svg");
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+}

@@ -21,6 +21,9 @@
     .attribution a {
       color: hsl(228, 45%, 44%);
     }
+    .none{
+      display: none;
+    }
   </style>
 </head>
 
@@ -45,8 +48,7 @@
       </div>
     </div>
     <div class="game_body">
-      <div class="pos_center">
-        <img class="bg-triangle" src="./images/bg-triangle.svg" alt="">
+      <div class="game_body--board-v1">
         <div class="box paper" value='paper'>
           <img src="./images/icon-paper.svg" alt="" srcset="">
         </div>
@@ -58,7 +60,7 @@
         </div>
       </div>
 
-      <div class="game_chossed hide">
+      <div class="game_chossed hide none">
         <div class="game_player_pick">
           <span class="title">
             you
@@ -82,8 +84,8 @@
       </div>
     </div>
 
-    <button id="game_rules">Rules</button>
-    <div class="game-rules-wiew">
+    <button id="game_rules" class="none">Rules</button>
+    <div class="game-rules-wiew none">
       <div class="modal">
         <div class="modal_header">
           <span style="text-transform: uppercase;">rules</span>
