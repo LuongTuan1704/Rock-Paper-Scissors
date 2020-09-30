@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="./css/reset.min.css">
   <link rel="stylesheet" href="./css/main.css">
   <title>Rock, Paper, Scissors</title>
 
@@ -16,13 +17,17 @@
     .attribution {
       font-size: 14px;
       text-align: center;
+      color: #f8f8f8;
+      font-weight: 300;
     }
 
     .attribution a {
+      text-decoration: none;
       color: hsl(228, 45%, 44%);
     }
-    .none{
-      display: none;
+
+    .hide {
+      display: none !important;
     }
   </style>
 </head>
@@ -32,41 +37,44 @@
   <div class="game_container">
     <div class="board_info">
       <h1 class="board_info--title">
-       <span style="color: #dc2e4e;"> Rock</span> </br>
-       <span style="color: #4865f4; margin-left:15px;"> Paper</span></br>
-       <span style="color: #ec9e0e;  margin-left: 30px;"> Scissors</span>
+        <span style="color: #dc2e4e;"> Rock</span> </br>
+        <span style="color: #4865f4; margin-left:15px;"> Paper</span></br>
+        <span style="color: #ec9e0e;  margin-left: 30px;"> Scissors</span>
       </h1>
       <div class="board_info--score">
         <div id="player">
-          <span style="color: #374baa;">player</span>          
+          <span style="color: #4865f4;">player</span>
           <span id="score">0</span>
         </div>
         <div id="compute">
-          <span style="color:#dc3853;">Computer</span>    
+          <span style="color:#dc2e4e;">Computer</span>
           <span id="score">0</span>
         </div>
       </div>
     </div>
     <div class="game_body">
-      <div class="game_body--board-v1">
-        <div class="box paper" value='paper'>
-          <img src="./images/icon-paper.svg" alt="" srcset="">
+      <div class="game_body--board-v1 ">
+        <div class="options">
+          <div class="box paper" value='paper'>
+            <img src="./../src/images/icon-paper.svg" alt="" srcset="">
+          </div>
+          <div class="box scissors" value='scissors'>
+            <img src="./../src/images/icon-scissors.svg" alt="" srcset="">
+          </div>
+          <div class="box rock" value='rock'>
+            <img src="./../src/images/icon-rock.svg" alt="" srcset="">
+          </div>
         </div>
-        <div class="box scissors" value='scissors'>
-          <img src="./images/icon-scissors.svg" alt="" srcset="">
-        </div>
-        <div class="box rock" value='rock'>
-          <img src="./images/icon-rock.svg" alt="" srcset="">
-        </div>
+
       </div>
 
-      <div class="game_chossed hide none">
+      <div class="game_chossed hide">
         <div class="game_player_pick">
           <span class="title">
             you
           </span>
-          <div class="box player_picked_item">
-           
+          <div class="player_picked_item">
+             <div class="box rock"> <img src="./../src/images/icon-rock.svg" alt="" srcset=""></div>
           </div>
         </div>
         <div class="btn_status hide">
@@ -77,21 +85,21 @@
           <span class="title">
             compute
           </span>
-          <div class="box compute_picked_item">
-          
+          <div class="compute_picked_item">
+             <div class="box rock"> <img src="./../src/images/icon-rock.svg" alt="" srcset=""></div>         
           </div>
         </div>
       </div>
     </div>
 
-    <button id="game_rules" class="none">Rules</button>
-    <div class="game-rules-wiew none">
+    <button id="game_rules">Rules</button>
+    <div class="game-rules-wiew">
       <div class="modal">
         <div class="modal_header">
           <span style="text-transform: uppercase;">rules</span>
-          <span class="btn close_modal"><img src="./images/icon-close.svg" alt=""></span>
+          <span class="btn close_modal"><img src="./../src/images/icon-close.svg" alt=""></span>
         </div>
-        <img src="./images/image-rules.svg" alt="">
+        <img src="./../src/images/image-rules.svg" alt="">
       </div>
     </div>
   </div>
