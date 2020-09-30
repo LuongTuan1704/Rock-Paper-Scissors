@@ -28,32 +28,32 @@
 
   <div class="game_container">
     <div class="board_info">
-      <h1 class="game_title">
-        Rock </br> Paper </br> Scissors
+      <h1 class="board_info--title">
+       <span style="color: #dc2e4e;"> Rock</span> </br>
+       <span style="color: #4865f4; margin-left:15px;"> Paper</span></br>
+       <span style="color: #ec9e0e;  margin-left: 30px;"> Scissors</span>
       </h1>
-      <div class="score_view">
-        <div id="you">
-          <span style="color: #374baa;">You</span>
-          </br>
+      <div class="board_info--score">
+        <div id="player">
+          <span style="color: #374baa;">player</span>          
           <span id="score">0</span>
         </div>
         <div id="compute">
-          <span style="color:#dc3853;">Computer</span>
-          </br>
-          <span id="computer_score">0</span>
+          <span style="color:#dc3853;">Computer</span>    
+          <span id="score">0</span>
         </div>
       </div>
     </div>
     <div class="game_body">
       <div class="pos_center">
         <img class="bg-triangle" src="./images/bg-triangle.svg" alt="">
-        <div class="s paper" value='paper'>
+        <div class="box paper" value='paper'>
           <img src="./images/icon-paper.svg" alt="" srcset="">
         </div>
-        <div class="s scissors" value='scissors'>
+        <div class="box scissors" value='scissors'>
           <img src="./images/icon-scissors.svg" alt="" srcset="">
         </div>
-        <div class="s rock" value='rock'>
+        <div class="box rock" value='rock'>
           <img src="./images/icon-rock.svg" alt="" srcset="">
         </div>
       </div>
@@ -63,8 +63,8 @@
           <span class="title">
             you
           </span>
-          <div class="player_picked_item view">
-            <img src="./images/icon-paper.svg" alt="" srcset="">
+          <div class="box player_picked_item">
+           
           </div>
         </div>
         <div class="btn_status hide">
@@ -75,8 +75,8 @@
           <span class="title">
             compute
           </span>
-          <div class="compute_picked_item view">
-            <img src="./images/icon-rock.svg" alt="" srcset="">
+          <div class="box compute_picked_item">
+          
           </div>
         </div>
       </div>
