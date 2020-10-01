@@ -1,5 +1,5 @@
 
-const itemNames = ['paper', 'rock', 'scissors', 'lizard','spock'];
+const itemNames = ['paper', 'rock', 'scissors', 'lizard', 'spock'];
 let score = 0, computeScore = 0;
 
 const boards = document.querySelectorAll('div[class *="game_body--board"]');
@@ -36,27 +36,27 @@ function setGameRulesVersion(version) {
     }
 }
 function run(version) {
-    let v = version==='v1'? 0:1;
-        if(v){
-            boards[0].classList.add("hide");
-            boards[1].classList.remove("hide");
-            boardCheck.classList.add("hide");
-        } else {
-            boards[0].classList.remove("hide");
-            boards[1].classList.add("hide");
-            boardCheck.classList.add("hide");
-        } 
-        items[v].forEach(element => {
-            element.onclick = function () {
-                let playerPicked = element.getAttribute('value');
-                boards[v].classList.add("hide");
-                boardCheck.classList.remove("hide");            
-                showItem(playerPicked, 'player');
-                let cumputePicked = computePicked(v);
-                checkWiner(playerPicked, cumputePicked);
-            }
+    let v = version === 'v1' ? 0 : 1;
+    if (v) {
+        boards[0].classList.add("hide");
+        boards[1].classList.remove("hide");
+        boardCheck.classList.add("hide");
+    } else {
+        boards[0].classList.remove("hide");
+        boards[1].classList.add("hide");
+        boardCheck.classList.add("hide");
+    }
+    items[v].forEach(element => {
+        element.onclick = function () {
+            let playerPicked = element.getAttribute('value');
+            boards[v].classList.add("hide");
+            boardCheck.classList.remove("hide");
+            showItem(playerPicked, 'player');
+            let cumputePicked = computePicked(v);
+            checkWiner(playerPicked, cumputePicked);
+        }
     });
-    
+   
     document.querySelector('.btn_play_again').onclick = function () {
         boards[v].classList.remove("hide");
         boardCheck.classList.add("hide");
@@ -84,18 +84,20 @@ function showItem(item, type) {
     }
 }
 
-function computePicked(v) {  
-    let num = v == 1 ? itemNames.length : 3;
-    let randomItem =Math.floor(Math.random() * num);
+function computePicked(v) {
+    let num = v == 1 ? 5 : 3;
+    let randomItem = Math.floor(Math.random() * num);
     showItem(itemNames[randomItem]);
     return itemNames[randomItem];
 }
 const checks = {
+
+    'scissors': 'paper',
     'paper': 'rock',
-    'rock': 'scissors',
-    'scissors': 'lizard',
-    'lizard':'spock',
-    'spock':'paper',
+    'rock': 'lizard',
+    'lizard': 'spock',
+    'spock': 'scissors',
+
 }
 
 function checkWiner(play, compute) {
