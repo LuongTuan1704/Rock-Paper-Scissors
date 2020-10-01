@@ -43,7 +43,7 @@ body {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 65px;
+        margin-bottom:25px;
 
         &--title {
             display: inline-block;
@@ -83,11 +83,9 @@ body {
         width: 704px;
 
         &--board-v1 {
-
-            height: 500px;
+            min-height: 500px;
             width: 100%;
             @include place(center, center, row);
-
             :hover {
                 cursor: pointer;
             }
@@ -144,7 +142,83 @@ body {
                 }
             }
         }
+        &--board-v2{
+            min-height: 500px;
+            width: 100%;
+            @include place(center, center, row);
+            :hover {
+                cursor: pointer;
+            }
+            .options {
+                user-select: none;
+                --w: 150px;
+                --h: 150px;
+                width: 452px;
+                height: 430px;
+                position: relative;
+                background: url("./../../src/images/bg-pentagon.svg") center no-repeat;
+                // animation: rc 6s linear infinite;
+                // @keyframes rc {
+                //     100%{
+                //         transform: rotate(359deg);
+                //     }
+                // }
+                .box {
+                    &>img {
+                        display: block;
+                        z-index: 1;
+                    }
 
+                    &::before {
+                        width: 70%;
+                        height: 70%;
+                        content: "";
+                        position: absolute;
+                        border-radius: 50%;
+                        background: #e1e4ed;
+                        box-shadow: inset 0px 8px 0px #b9bed2;
+                    }
+                }
+
+                .paper {
+                    @include position(calc(33.3333% - 40px),calc(100% - 150px), var(--w), var(--h));
+                    @include place(center, center, row);
+                    border-radius: 50%;
+                    background-image: linear-gradient(#4865f4, #5671f5);
+                    box-shadow: 0px 8px 0px -1px #2642bf;
+                }
+
+                .scissors {
+                    @include position(0px,calc(50% - calc(var(--w) / 2)), var(--w), var(--h));
+                    @include place(center, center, row);
+                    border-radius: 50%;
+                    background-image: linear-gradient(#ec9e0e, #eca922);
+                    box-shadow: 0px 8px 0px -1px #cc6d1b;
+                }
+
+                .rock {
+                    @include position(calc(100% - 160px), calc(33.3333% + 85px), var(--w), var(--h));
+                    @include place(center, center, row);
+                    border-radius: 50%;
+                    background-image: linear-gradient(#dc2e4e, #dd405d);
+                    box-shadow: 0px 8px 0px -1px #991635;
+                }
+                .lizard{
+                    @include position(calc(100% - 160px), calc(33.3333% - 85px), var(--w), var(--h));
+                    @include place(center, center, row);
+                    border-radius: 50%;
+                    background-image: linear-gradient(#8b58e3, #8b57ea);
+                    box-shadow: 0px 8px 0px -1px #5f37aa;
+                }
+                .spock{
+                    @include position(calc(33.3333% - 40px), 0%, var(--w), var(--h));
+                    @include place(center, center, row);
+                    border-radius: 50%;
+                    background-image: linear-gradient(#47bacf, #4bbcce);
+                    box-shadow: 0px 8px 0px -1px #308fab;
+                }
+            }
+        }
         .game_chossed {
             @include place(space-around, flex-start, row);
             min-height: 250px;
@@ -277,7 +351,21 @@ body {
                     background-image: linear-gradient(#dc2e4e, #dd405d);
                     box-shadow: 0px 8px 0px -1px #991635;
                 }
+                .lizard {
+                     width: 160px;
+                     height: 160px;
+                    border-radius: 50%;
+                    background-image: linear-gradient(#8b58e3, #8b57ea);
+                    box-shadow: 0px 8px 0px -1px #5f37aa;
+                }
 
+                .spock {
+                    width: 160px;
+                    height: 160px;
+                    border-radius: 50%;
+                    background-image: linear-gradient(#47bacf, #4bbcce);
+                    box-shadow: 0px 8px 0px -1px #308fab;
+                }
             }
 
             .btn_status {
@@ -328,29 +416,40 @@ body {
 
     }
 
-    #game_rules {
-        padding: 5px 34px;
-        font-size: 16px;
-        border: 2px solid #596781;
-        color: #f8f8f8;
-        border-radius: 12px;
-        background-color: transparent;
+    .controler_app_version {
+        min-height: 45px;
+        padding: 5px 15px;    
+         border-radius: 12px;
+        border: 2px solid #596781;       
         position: absolute;
         bottom: 30px;
         right: 30px;
-    }
-
-    #game_info {
-        padding: 5px 34px;
+        .set_version {
+            margin-bottom:6px;
+            &>* {
+            border-radius: 12px;
+            padding: 5px 15px;
+            font-size: 16px;
+            font-weight: normal;
+            background-color: transparent;
+            color: #f8f8f8;
+            cursor: pointer;
+            &:hover{
+                color: #eca922;
+            }
+            }          
+        }
+        #game_rules{ 
+        padding: 5px 15px;
+        outline: none;
         font-size: 16px;
-        border: 2px solid #596781;
         color: #f8f8f8;
         border-radius: 12px;
         background-color: transparent;
-        position: absolute;
-        top: 30px;
-        right: 30px;
+         cursor: pointer;
+        }
     }
+
 
     .game-rules-wiew {
         position: absolute;
@@ -361,6 +460,22 @@ body {
         background-color: rgba(0, 0, 0, 0.4);
         display: none;
         z-index: 1;
+        .modal {
+            background-color: #eaeaea;
+            padding: 30px;
+            border-radius: 12px;
+
+            &_header {
+                margin-bottom: 30px;
+                display: flex;
+                justify-content: space-between;
+                cursor: pointer;
+            }
+
+            &_body {
+                cursor: pointer;
+            }
+        }
 
         &.open {
             display: flex;
@@ -368,22 +483,5 @@ body {
             align-items: center;
         }
     }
-
-    .game-rules-wiew .modal {
-        background-color: #eaeaea;
-        padding: 30px;
-        border-radius: 12px;
-    }
-
-    .modal_header {
-        margin-bottom: 30px;
-        display: flex;
-        justify-content: space-between;
-
-        &:hover img {
-            cursor: pointer;
-        }
-    }
-
 
 }

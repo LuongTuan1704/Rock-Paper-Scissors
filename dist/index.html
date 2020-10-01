@@ -53,7 +53,7 @@
       </div>
     </div>
     <div class="game_body">
-      <div class="game_body--board-v1 ">
+      <div class="game_body--board-v1">
         <div class="options">
           <div class="box paper" value='paper'>
             <img src="./../src/images/icon-paper.svg" alt="" srcset="">
@@ -67,7 +67,25 @@
         </div>
 
       </div>
-
+      <div class="game_body--board-v2 hide">
+        <div class="options">
+          <div class="box paper" value='paper'>
+            <img src="./../src/images/icon-paper.svg" alt="" srcset="">
+          </div>
+          <div class="box scissors" value='scissors'>
+            <img src="./../src/images/icon-scissors.svg" alt="" srcset="">
+          </div>
+          <div class="box rock" value='rock'>
+            <img src="./../src/images/icon-rock.svg" alt="" srcset="">
+          </div>
+          <div class="box lizard" value='lizard'>
+            <img src="./../src/images/icon-lizard.svg" alt="" srcset="">
+          </div>
+          <div class="box spock" value='spock'>
+            <img src="./../src/images/icon-spock.svg" alt="" srcset="">
+          </div>
+        </div>
+      </div>
       <div class="game_chossed hide">
         <div class="game_player_pick">
           <span class="title">
@@ -91,15 +109,24 @@
         </div>
       </div>
     </div>
-
-    <button id="game_rules">Rules</button>
+    <div class="controler_app_version">
+      <form class="set_version">
+        <label for="v1">version 1</label><input type="radio" name="version" id="v1" value="v1" checked> </br>
+        <label for="v2">version 2</label><input type="radio" name="version" id="v2" value="v2">
+      </form>
+      <button id="game_rules" data-version = 'v1'>Game Rules</button>
+    </div>
+    
     <div class="game-rules-wiew">
       <div class="modal">
         <div class="modal_header">
           <span style="text-transform: uppercase;">rules</span>
           <span class="btn close_modal"><img src="./../src/images/icon-close.svg" alt=""></span>
         </div>
-        <img src="./../src/images/image-rules.svg" alt="">
+        <div class="modal_body">
+          <img src="./../src/images/image-rules.svg" alt="">
+        </div>
+        
       </div>
     </div>
   </div>
