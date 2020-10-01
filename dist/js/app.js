@@ -56,7 +56,7 @@ function run(version) {
             checkWiner(playerPicked, cumputePicked);
         }
     });
-   
+
     document.querySelector('.btn_play_again').onclick = function () {
         boards[v].classList.remove("hide");
         boardCheck.classList.add("hide");
@@ -92,11 +92,11 @@ function computePicked(v) {
 }
 const checks = {
 
-    'scissors': ['paper','lizard'],
-    'paper': ['rock','spock' ],
-    'rock': ['lizard','scissors'],
-    'lizard': ['spock','paper'],
-    'spock': ['scissors','rock'],
+    'scissors': ['paper', 'lizard'],
+    'paper': ['rock', 'spock'],
+    'rock': ['lizard', 'scissors'],
+    'lizard': ['spock', 'paper'],
+    'spock': ['scissors', 'rock'],
 }
 
 function checkWiner(play, compute) {
