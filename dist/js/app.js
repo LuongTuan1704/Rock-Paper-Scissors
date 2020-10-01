@@ -92,12 +92,11 @@ function computePicked(v) {
 }
 const checks = {
 
-    'scissors': 'paper',
-    'paper': 'rock',
-    'rock': 'lizard',
-    'lizard': 'spock',
-    'spock': 'scissors',
-
+    'scissors': ['paper','lizard'],
+    'paper': ['rock','spock' ],
+    'rock': ['lizard','scissors'],
+    'lizard': ['spock','paper'],
+    'spock': ['scissors','rock'],
 }
 
 function checkWiner(play, compute) {
@@ -109,7 +108,7 @@ function checkWiner(play, compute) {
             computer.classList.add('rotate');
             document.querySelector('.btn_status').classList.remove('hide');
         }, 500)
-    } else if (checks[play] === compute) {
+    } else if (checks[play].includes(compute)) {
         str = 'You Win';
         document.querySelector('#player #score').innerText = ++score;
         setTimeout(function () {
