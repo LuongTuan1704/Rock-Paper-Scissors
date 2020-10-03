@@ -30,9 +30,9 @@ function setGameVersion(version) {
 }
 function setGameRulesVersion(version) {
     if (version === 'v1') {
-        document.querySelector('.modal_body').innerHTML = `<img src="./../src/images/image-rules.svg" alt="rules">`
+        document.querySelector('.modal_body').innerHTML = `<img src="./../images/image-rules.svg" alt="rules">`
     } else {
-        document.querySelector('.modal_body').innerHTML = `<img src="./../src/images/image-rules-bonus.svg" alt="rules">`
+        document.querySelector('.modal_body').innerHTML = `<img src="./../images/image-rules-bonus.svg" alt="rules">`
     }
 }
 function run(version) {
@@ -70,13 +70,13 @@ function run(version) {
 function showItem(item, type) {
     if (type === 'player') {
         player.classList.add('slide-left')
-        player.innerHTML = `<div class="box ${item}"> <img src="./../src/images/icon-${item}.svg" alt="fail load ${item}.svg file"></div>`;
+        player.innerHTML = `<div class="box ${item}"> <img src="./images/icon-${item}.svg" alt="fail load ${item}.svg file"></div>`;
         setTimeout(function () {
             player.classList.remove('slide-left')
         }, 500)
     } else {
         computer.classList.add('slide-right')
-        computer.innerHTML = `<div class="box ${item}"> <img src="./../src/images/icon-${item}.svg" alt="fail load ${item}.svg file"></div>`;
+        computer.innerHTML = `<div class="box ${item}"> <img src="./images/icon-${item}.svg" alt="fail load ${item}.svg file"></div>`;
         setTimeout(function () {
             computer.classList.remove('slide-right')
         }, 500)

@@ -145,7 +145,7 @@ body {
   width: 305px;
   height: 277px;
   position: relative;
-  background: url("./../../src/images/bg-triangle.svg") center no-repeat;
+  background: url("./../images/bg-triangle.svg") center no-repeat;
 }
 
 .game_container .game_body--board-v1 .options .box > img {
@@ -274,7 +274,7 @@ body {
   width: 452px;
   height: 430px;
   position: relative;
-  background: url("./../../src/images/bg-pentagon.svg") center no-repeat;
+  background: url("./../images/bg-pentagon.svg") center no-repeat;
 }
 
 .game_container .game_body--board-v2 .options .box > img {
